@@ -1,6 +1,7 @@
 # 1. Go Durations
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/ElecTwix/durations)](https://goreportcard.com/report/github.com/ElecTwix/durations)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ElecTwix/durations)](https://goreportcard.com/report/github.com/ElecTwix/durations) [![PkgGoDev](https://pkg.go.dev/badge/github.com/ElecTwix/durations)](https://pkg.go.dev/github.com/ElecTwix/durations)
+
 
 ## 1.1. What is this for
 
