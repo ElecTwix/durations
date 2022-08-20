@@ -1,5 +1,7 @@
 # 1. Go Durations
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/ElecTwix/durations)](https://goreportcard.com/report/github.com/ElecTwix/durations)
+
 ## 1.1. What is this for
 
 Go Durations easily parse string durations without any order in input order and high durations like 1 year.
