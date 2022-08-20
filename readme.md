@@ -17,7 +17,7 @@ I was looking for parser with out any order on string, easy to use, support long
 
 |  Durations  |      short      |  Package |
 |----------     |:-------------:|------:|
-| Nanosecond |  left-aligned | [Time.Time](https://pkg.go.dev/time)  |
+| Nanosecond |  ns | [Time.Time](https://pkg.go.dev/time)  |
 | Microsecond |    us & µs & μs  |   [Time.Time](https://pkg.go.dev/time) |
 | Millisecond | ms |    [Time.Time](https://pkg.go.dev/time) |
 | Second      | s |    [Time.Time](https://pkg.go.dev/time) |
