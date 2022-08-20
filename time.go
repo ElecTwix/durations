@@ -39,7 +39,7 @@ var unitMap = map[string]uint64{
 	"c":   uint64(Century),
 }
 
-func getdate(durationstr string) (totalduration time.Duration, err error) {
+func GetDuration(durationstr string) (totalduration time.Duration, err error) {
 
 	strarr := strings.Fields(durationstr)
 
@@ -57,7 +57,7 @@ func getdate(durationstr string) (totalduration time.Duration, err error) {
 				}
 			}
 		}
-		tempdur, err := parsetime(intstr, charstr)
+		tempdur, err := parseTime(intstr, charstr)
 		sumduration = sumduration + tempdur
 		if err != nil {
 			return 0, err
@@ -68,7 +68,7 @@ func getdate(durationstr string) (totalduration time.Duration, err error) {
 	return sumduration, nil
 }
 
-func parsetime(intstr string, charstr string) (duration time.Duration, err error) {
+func parseTime(intstr string, charstr string) (duration time.Duration, err error) {
 	digit, err := strconv.Atoi(intstr)
 
 	dur := unitMap[charstr] * uint64(digit)
