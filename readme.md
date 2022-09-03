@@ -32,6 +32,6 @@ I was looking for parser with out any order on string, easy to use, support long
 | Year | y |    [durations](https://github.com/ElecTwix/durations) |
 | Century | c |    [durations](https://github.com/ElecTwix/durations) |
 
-## 1.5. 1.4 Credit
+## 1.5. Credit
 
 [ElecTwix](https://github.com/ElecTwix)
