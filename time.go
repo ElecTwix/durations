@@ -18,8 +18,8 @@ const (
 	Hour                 = 60 * Minute
 	Day                  = 24 * Hour
 	Week                 = 7 * Day
-	Month                = 4 * Week
-	Year                 = 12 * Week
+	Month                = 30 * Day
+	Year                 = 365 * Day
 	Century              = 100 * Year
 )
 
