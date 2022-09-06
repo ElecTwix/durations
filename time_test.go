@@ -8,14 +8,23 @@ import (
 
 func Test_GetDate(t *testing.T) {
 
-	strArr := []string{"mon", "w", "h"}
-	mulArr := []int{3, 2, 1}
+	strArr := []string{"c", "y", "h"}
+	mulArr := []int{1, 1, 1}
 	sumStr := ""
 
 	var expected time.Duration = 0
-	for index, val := range strArr {
-		expected = expected + time.Duration(unitMap[val]*uint64(mulArr[index]))
-		sumStr = sumStr + val + strconv.Itoa(mulArr[index]) + " "
+	for index, str := range strArr {
+
+		digit := strconv.Itoa(mulArr[index])
+		expected += time.Duration(unitMap[str] * uint64(mulArr[index]))
+		sumStr += str + digit + " "
+		if str == "c" {
+			expected += GetTotalLeapYear(mulArr[index] * 100)
+		}
+		if str == "y" {
+			expected += GetTotalLeapYear(mulArr[index])
+		}
+
 	}
 
 	time, err := GetDuration(sumStr)

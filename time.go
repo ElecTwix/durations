@@ -50,7 +50,7 @@ func GetDuration(durationstr string) (totalduration time.Duration, err error) {
 		var charstr string = ""
 		for _, char := range str {
 			if '0' <= char && char <= '9' {
-				intstr = intstr + string(char)
+				intstr += string(char)
 			} else {
 				if !unicode.IsDigit(char) {
 					charstr = charstr + string(char)
@@ -58,7 +58,7 @@ func GetDuration(durationstr string) (totalduration time.Duration, err error) {
 			}
 		}
 		tempdur, err := parseTime(intstr, charstr)
-		sumduration = sumduration + tempdur
+		sumduration += tempdur
 		if err != nil {
 			return 0, err
 		}
@@ -69,9 +69,36 @@ func GetDuration(durationstr string) (totalduration time.Duration, err error) {
 }
 
 func parseTime(intstr string, charstr string) (duration time.Duration, err error) {
+	var totalduration time.Duration = 0
 	digit, err := strconv.Atoi(intstr)
 
-	dur := unitMap[charstr] * uint64(digit)
+	switch charstr {
+	case "c":
+		totalduration += GetTotalLeapYear(digit * 100)
+	case "y":
+		totalduration += GetTotalLeapYear(digit)
+	}
 
-	return time.Duration(dur), nil
+	totalduration += time.Duration(unitMap[charstr] * uint64(digit))
+
+	return totalduration, nil
+}
+
+func GetTotalLeapYear(totalyear int) (duration time.Duration) {
+	var sumduration time.Duration = 0
+	yearNow := time.Now().Year()
+	for i := 0; totalyear > i; i++ {
+		if isLeapYear(yearNow) {
+			sumduration += time.Duration(Day)
+		}
+		yearNow++
+	}
+	return sumduration
+}
+
+func isLeapYear(year int) bool {
+	if year%4 == 0 && year%100 != 0 || year%400 == 0 {
+		return true
+	}
+	return false
 }
